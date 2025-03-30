@@ -1,5 +1,4 @@
-markdown
-Copy
+
 # 🍕 Simulador de Restaurante Interactivo
 
 [![CI/CD Status](https://github.com/MichaelEGS/restaurant-simulator/actions/workflows/ci-cd-pipeline.yml/badge.svg)](https://github.com/MichaelEGS/restaurant-simulator/actions)
@@ -7,13 +6,8 @@ Copy
 
 Un sistema de simulación completo para gestionar pedidos, mesas y operaciones de restaurante con interfaz web interactiva.
 
-![Interfaz del Simulador de Restaurante](./documents/imag/screenshot.png)
-<p>
-  <img src="./documents/img/Screenshot.png" alt="Captura del sistema" width="800">
-</p>
-<p>
-  <img src="./documents/img/Screenshot2.png" alt="Captura del sistema" width="800">
-</p>
+![Interfaz del Simulador de Restaurante](.screenshot2.png)
+
 
 ## 🚀 Características Principales
 - 📊 Generación automática de pedidos (Local, Para llevar, Domicilio)
