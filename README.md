@@ -6,9 +6,6 @@
 
 Un sistema de simulación completo para gestionar pedidos, mesas y operaciones de restaurante con interfaz web interactiva.
 
-![Interfaz del Simulador de Restaurante](.screenshot2.png)
-
-
 ## 🚀 Características Principales
 - 📊 Generación automática de pedidos (Local, Para llevar, Domicilio)
 - ⏱ Temporizador de simulación en tiempo real
