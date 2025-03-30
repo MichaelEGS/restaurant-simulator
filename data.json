@@ -1,0 +1,117 @@
+{
+  "clientes": [],
+  "mesas": [
+    { "id": 1, "capacidad": 4, "disponible": true },
+    { "id": 2, "capacidad": 2, "disponible": true },
+    { "id": 3, "capacidad": 6, "disponible": true },
+    { "id": 4, "capacidad": 4, "disponible": true },
+    { "id": 5, "capacidad": 2, "disponible": true },
+    { "id": 6, "capacidad": 4, "disponible": true },
+    { "id": 7, "capacidad": 8, "disponible": true },
+    { "id": 8, "capacidad": 4, "disponible": true }
+  ],
+  "menu": {
+    "combos": [
+      {
+        "id": "combo1",
+        "nombre": "Combo Familiar",
+        "descripcion": "Pizza grande, 4 bebidas y pan de ajo",
+        "precio": 25.99,
+        "imagen": "https://via.placeholder.com/200x100/FF5733/FFFFFF?text=Combo+Familiar",
+        "tiempoPreparacion": 20
+      },
+      {
+        "id": "combo2",
+        "nombre": "Combo Pareja",
+        "descripcion": "Pizza mediana, 2 bebidas y pan de ajo",
+        "precio": 18.99,
+        "imagen": "https://via.placeholder.com/200x100/33A8FF/FFFFFF?text=Combo+Pareja",
+        "tiempoPreparacion": 15
+      },
+      {
+        "id": "combo3",
+        "nombre": "Combo Individual",
+        "descripcion": "Pizza personal, bebida y postre",
+        "precio": 12.99,
+        "imagen": "https://via.placeholder.com/200x100/33FF57/FFFFFF?text=Combo+Individual",
+        "tiempoPreparacion": 10
+      }
+    ],
+    "pizzas": [
+      {
+        "id": "pizza1",
+        "nombre": "Pizza Suprema",
+        "descripcion": "Jamón, pepperoni, pimientos, cebolla y champiñones",
+        "precio": 15.99,
+        "imagen": "https://via.placeholder.com/200x100/FF3366/FFFFFF?text=Pizza+Suprema",
+        "tiempoPreparacion": 18
+      },
+      {
+        "id": "pizza2",
+        "nombre": "Pizza Hawaiana",
+        "descripcion": "Jamón y piña",
+        "precio": 13.99,
+        "imagen": "https://via.placeholder.com/200x100/FFCC33/FFFFFF?text=Pizza+Hawaiana",
+        "tiempoPreparacion": 15
+      },
+      {
+        "id": "pizza3",
+        "nombre": "Pizza Vegetariana",
+        "descripcion": "Pimientos, cebolla, champiñones, aceitunas y tomate",
+        "precio": 14.99,
+        "imagen": "https://via.placeholder.com/200x100/33FFCC/FFFFFF?text=Pizza+Vegetariana",
+        "tiempoPreparacion": 16
+      },
+      {
+        "id": "pizza4",
+        "nombre": "Pizza Pepperoni",
+        "descripcion": "Extra pepperoni y queso",
+        "precio": 12.99,
+        "imagen": "https://via.placeholder.com/200x100/CC33FF/FFFFFF?text=Pizza+Pepperoni",
+        "tiempoPreparacion": 14
+      }
+    ],
+    "bebidas": [
+      {
+        "id": "bebida1",
+        "nombre": "Refresco Cola",
+        "descripcion": "Refresco de cola 500ml",
+        "precio": 2.5,
+        "imagen": "https://via.placeholder.com/200x100/000000/FFFFFF?text=Refresco+Cola",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida2",
+        "nombre": "Refresco Naranja",
+        "descripcion": "Refresco de naranja 500ml",
+        "precio": 2.5,
+        "imagen": "https://via.placeholder.com/200x100/FF9933/FFFFFF?text=Refresco+Naranja",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida3",
+        "nombre": "Agua Mineral",
+        "descripcion": "Agua mineral 500ml",
+        "precio": 1.99,
+        "imagen": "https://via.placeholder.com/200x100/33CCFF/FFFFFF?text=Agua+Mineral",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida4",
+        "nombre": "Cerveza",
+        "descripcion": "Cerveza nacional 355ml",
+        "precio": 3.5,
+        "imagen": "https://via.placeholder.com/200x100/FFFF33/000000?text=Cerveza",
+        "tiempoPreparacion": 2
+      }
+    ]
+  },
+  "pedidos": [],
+  "facturas": [],
+  "estadisticas": {
+    "clientesAtendidos": 0,
+    "pedidosCompletados": 0,
+    "ventasTotal": 0
+  }
+}
+

@@ -1,0 +1,43 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # PASO 1: Descargar código
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # PASO 2: Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20  # Versión específica de Node
+
+      # PASO 3: Instalar dependencias
+      - name: Install Dependencies
+        run: npm ci
+
+      # PASO 4: Verificar calidad de código
+      - name: Run ESLint
+        run: npx eslint . --ext .js
+
+      # PASO 5: Construir aplicación
+      - name: Build
+        run: |
+          mkdir -p dist
+          cp -r *.html *.css modulos data.json dist/
+
+      # PASO 6: Desplegar en GitHub Pages (solo main)
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

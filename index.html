@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Restaurante - Pizza Hut</title>
+    <link rel="icon" href="https://placehold.co/32x32/e31837/FFFFFF/png?text=P" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://placehold.co/80x80/e31837/FFFFFF/png?text=Pizza" alt="Logo Restaurante" class="logo">
+            <h1>Pizza Express</h1>
+        </div>
+        <div class="controls">
+            <button id="add-customer" class="btn btn-primary">Añadir Cliente</button>
+            <button id="start-simulation" class="btn btn-success">Iniciar Simulación</button>
+            <button id="pause-simulation" class="btn btn-warning">Pausar</button>
+            <button id="reset-simulation" class="btn btn-danger">Reiniciar</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Clientes en Cola</h3>
+                    <p id="queue-count">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Mesas Ocupadas</h3>
+                    <p id="tables-occupied">0/8</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pedidos en Preparación</h3>
+                    <p id="orders-in-progress">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pedidos Completados</h3>
+                    <p id="orders-completed">0</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="simulation-container">
+            <section class="queue-section">
+                <h2>Cola de Espera</h2>
+                <div id="customer-queue" class="customer-queue">
+                    <!-- Los clientes en cola se añadirán aquí dinámicamente -->
+                </div>
+            </section>
+
+            <section class="restaurant-section">
+                <h2>Área de Restaurante</h2>
+                <div class="tables-container">
+                    <div id="tables-grid" class="tables-grid">
+                        <!-- Las mesas se generarán dinámicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="kitchen-section">
+                <h2>Cocina</h2>
+                <div id="kitchen-orders" class="kitchen-orders">
+                    <!-- Los pedidos en preparación se mostrarán aquí -->
+                </div>
+            </section>
+        </div>
+
+        <section class="orders-section">
+            <h2>Pedidos Recientes</h2>
+            <div id="recent-orders" class="recent-orders">
+                <!-- Los pedidos recientes se mostrarán aquí -->
+            </div>
+        </section>
+        
+        <section class="delivery-section">
+            <h2>Pedidos para Domicilio</h2>
+            <div id="delivery-orders" class="delivery-orders">
+                <!-- Los pedidos a domicilio se mostrarán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Crear Pedido</h2>
+            
+            <div class="customer-info">
+                <h3>Información del Cliente</h3>
+                <div class="form-group">
+                    <label for="customer-name">Nombre:</label>
+                    <input type="text" id="customer-name" placeholder="Nombre del cliente">
+                </div>
+                <div class="form-group">
+                    <label for="customer-type">Tipo:</label>
+                    <select id="customer-type">
+                        <option value="local">Local</option>
+                        <option value="domicilio">Domicilio</option>
+                    </select>
+                </div>
+                <div class="form-group" id="address-group" style="display: none;">
+                    <label for="customer-address">Dirección:</label>
+                    <input type="text" id="customer-address" placeholder="Dirección de entrega">
+                </div>
+            </div>
+
+            <div class="menu-selection">
+                <h3>Menú</h3>
+                <div class="menu-categories">
+                    <button class="menu-tab active" data-category="combos">Combos</button>
+                    <button class="menu-tab" data-category="pizzas">Pizzas</button>
+                    <button class="menu-tab" data-category="bebidas">Bebidas</button>
+                </div>
+
+                <div class="menu-items" id="menu-items">
+                    <!-- Los elementos del menú se cargarán dinámicamente -->
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h3>Resumen del Pedido</h3>
+                <ul id="order-items-list">
+                    <!-- Los items seleccionados se mostrarán aquí -->
+                </ul>
+                <div class="order-total">
+                    <p>Total: <span id="order-total">$0.00</span></p>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="cancel-order" class="btn btn-secondary">Cancelar</button>
+                <button id="confirm-order" class="btn btn-primary">Confirmar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="invoice-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="invoice">
+                <div class="invoice-header">
+                    <h2>Factura</h2>
+                    <p>Número de Orden: <span id="invoice-order-number"></span></p>
+                    <p>Fecha: <span id="invoice-date"></span></p>
+                </div>
+                <div class="invoice-customer">
+                    <p>Cliente: <span id="invoice-customer-name"></span></p>
+                    <p>Tipo: <span id="invoice-customer-type"></span></p>
+                    <p id="invoice-address-container">Dirección: <span id="invoice-customer-address"></span></p>
+                </div>
+                <div class="invoice-items">
+                    <h3>Detalle del Pedido</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoice-items">
+                            <!-- Los items de la factura se mostrarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="invoice-total">
+                    <p>Total: <span id="invoice-total"></span></p>
+                </div>
+                <div class="invoice-footer">
+                    <p>¡Gracias por su compra!</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="close-invoice" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivos JavaScript -->
+    <script id="data-json" type="application/json">
+{
+  "clientes": [],
+  "mesas": [
+    { "id": 1, "capacidad": 4, "disponible": true },
+    { "id": 2, "capacidad": 2, "disponible": true },
+    { "id": 3, "capacidad": 6, "disponible": true },
+    { "id": 4, "capacidad": 4, "disponible": true },
+    { "id": 5, "capacidad": 2, "disponible": true },
+    { "id": 6, "capacidad": 4, "disponible": true },
+    { "id": 7, "capacidad": 8, "disponible": true },
+    { "id": 8, "capacidad": 4, "disponible": true }
+  ],
+  "menu": {
+    "combos": [
+      {
+        "id": "combo1",
+        "nombre": "Combo Familiar",
+        "descripcion": "Pizza grande, 4 bebidas y pan de ajo",
+        "precio": 25.99,
+        "imagen": "https://placehold.co/200x100/FF5733/FFFFFF/png?text=Combo+Familiar",
+        "tiempoPreparacion": 20
+      },
+      {
+        "id": "combo2",
+        "nombre": "Combo Pareja",
+        "descripcion": "Pizza mediana, 2 bebidas y pan de ajo",
+        "precio": 18.99,
+        "imagen": "https://placehold.co/200x100/33A8FF/FFFFFF/png?text=Combo+Pareja",
+        "tiempoPreparacion": 15
+      },
+      {
+        "id": "combo3",
+        "nombre": "Combo Individual",
+        "descripcion": "Pizza personal, bebida y postre",
+        "precio": 12.99,
+        "imagen": "https://placehold.co/200x100/33FF57/FFFFFF/png?text=Combo+Individual",
+        "tiempoPreparacion": 10
+      }
+    ],
+    "pizzas": [
+      {
+        "id": "pizza1",
+        "nombre": "Pizza Suprema",
+        "descripcion": "Jamón, pepperoni, pimientos, cebolla y champiñones",
+        "precio": 15.99,
+        "imagen": "https://placehold.co/200x100/FF3366/FFFFFF/png?text=Pizza+Suprema",
+        "tiempoPreparacion": 18
+      },
+      {
+        "id": "pizza2",
+        "nombre": "Pizza Hawaiana",
+        "descripcion": "Jamón y piña",
+        "precio": 13.99,
+        "imagen": "https://placehold.co/200x100/FFCC33/FFFFFF/png?text=Pizza+Hawaiana",
+        "tiempoPreparacion": 15
+      },
+      {
+        "id": "pizza3",
+        "nombre": "Pizza Vegetariana",
+        "descripcion": "Pimientos, cebolla, champiñones, aceitunas y tomate",
+        "precio": 14.99,
+        "imagen": "https://placehold.co/200x100/33FFCC/FFFFFF/png?text=Pizza+Vegetariana",
+        "tiempoPreparacion": 16
+      },
+      {
+        "id": "pizza4",
+        "nombre": "Pizza Pepperoni",
+        "descripcion": "Extra pepperoni y queso",
+        "precio": 12.99,
+        "imagen": "https://placehold.co/200x100/CC33FF/FFFFFF/png?text=Pizza+Pepperoni",
+        "tiempoPreparacion": 14
+      }
+    ],
+    "bebidas": [
+      {
+        "id": "bebida1",
+        "nombre": "Refresco Cola",
+        "descripcion": "Refresco de cola 500ml",
+        "precio": 2.50,
+        "imagen": "https://placehold.co/200x100/000000/FFFFFF/png?text=Refresco+Cola",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida2",
+        "nombre": "Refresco Naranja",
+        "descripcion": "Refresco de naranja 500ml",
+        "precio": 2.50,
+        "imagen": "https://placehold.co/200x100/FF9933/FFFFFF/png?text=Refresco+Naranja",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida3",
+        "nombre": "Agua Mineral",
+        "descripcion": "Agua mineral 500ml",
+        "precio": 1.99,
+        "imagen": "https://placehold.co/200x100/33CCFF/FFFFFF/png?text=Agua+Mineral",
+        "tiempoPreparacion": 1
+      },
+      {
+        "id": "bebida4",
+        "nombre": "Cerveza",
+        "descripcion": "Cerveza nacional 355ml",
+        "precio": 3.50,
+        "imagen": "https://placehold.co/200x100/FFFF33/000000/png?text=Cerveza",
+        "tiempoPreparacion": 2
+      }
+    ]
+  },
+  "pedidos": [],
+  "facturas": [],
+  "estadisticas": {
+    "clientesAtendidos": 0,
+    "pedidosCompletados": 0,
+    "ventasTotal": 0
+  }
+}
+</script>
+    <script src="modulos/api.js" type="module"></script>
+    <script src="modulos/clientes.js" type="module"></script>
+    <script src="modulos/pedidos.js" type="module"></script>
+    <script src="modulos/tiempo.js" type="module"></script>
+    <script src="modulos/mesas.js" type="module"></script>
+    <script src="modulos/facturacion.js" type="module"></script>
+    <script src="modulos/activos.js" type="module"></script>
+    <script src="modulos/ui-integration.js" type="module"></script>
+</body>
+</html>
+
