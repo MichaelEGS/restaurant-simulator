@@ -7,7 +7,7 @@ Copy
 
 Un sistema de simulación completo para gestionar pedidos, mesas y operaciones de restaurante con interfaz web interactiva.
 
-![Captura de Pantalla](https://ibb.co/wZKncxBp) 
+![Captura de Pantalla]([url=https://ibb.co/wZKncxBp][img]https://i.ibb.co/xKMnFRXz/image.png[/img][/url]) 
 
 ## 🚀 Características Principales
 - 📊 Generación automática de pedidos (Local, Para llevar, Domicilio)
