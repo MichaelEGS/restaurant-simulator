@@ -20,23 +20,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # Versión específica de Node
+          node-version: 20
 
       # PASO 3: Instalar dependencias
       - name: Install Dependencies
         run: npm ci
 
-      # PASO 4: Verificar calidad de código
+      # PASO 4: Verificación de sintaxis (¡Nuevo!)
+      - name: Check JS Syntax
+        run: node --check ./modulos/*.js  # Verifica TODOS tus archivos JS
+
+      # PASO 5: Verificar calidad de código
       - name: Run ESLint
         run: npx eslint . --ext .js
 
-      # PASO 5: Construir aplicación
+      # PASO 6: Construir aplicación
       - name: Build
         run: |
           mkdir -p dist
           cp -r *.html *.css modulos data.json dist/
 
-      # PASO 6: Desplegar en GitHub Pages (solo main)
+      # PASO 7: Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
