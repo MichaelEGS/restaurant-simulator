@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write   # Permiso adicional para subir artefactos
     steps:
       # PASO 1: Descargar código
       - name: Checkout Code
@@ -37,14 +38,16 @@ jobs:
       # PASO 6: Ejecutar pruebas unitarias
       - name: Run Unit Tests
         run: npm run test:unit -- --ci --reporters=default --reporters=jest-junit
-      
-      # PASO 7: Subir resultados de pruebas
+        # Asegúrate de que el archivo test-results.xml se genere en la raíz del proyecto
+        # Si no es así, ajusta la ruta en el siguiente paso.
+
+      # PASO 7: Subir resultados de pruebas (Corregido)
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # ¡Versión actualizada!
         with:
           name: test-results
-          path: test-results.xml
+          path: test-results.xml  # Verifica que esta ruta sea correcta
 
       # PASO 8: Construir aplicación
       - name: Build
@@ -55,7 +58,7 @@ jobs:
       # PASO 9: Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4  # Versión más reciente (opcional)
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
