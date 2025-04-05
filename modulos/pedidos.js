@@ -203,6 +203,6 @@ window.Pedidos = {
   iniciarPreparacion,
   marcarPedidoListo,
   marcarPedidoEntregado,
-  obtenerPedidosPorEstado,a
+  obtenerPedidosPorEstado,
 }
 
