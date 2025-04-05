@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Restaurante - Pizza Hut</title>
-    <link rel="icon" href="https://placehold.co/32x32/e31837/FFFFFF/png?text=P" type="image/png">
+    <link rel="icon" href="imagenes/pizzalogo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="https://placehold.co/80x80/e31837/FFFFFF/png?text=Pizza" alt="Logo Restaurante" class="logo">
+            <img src="imagenes/pizzalogo.png" alt="Logo Restaurante" class="logo">
             <h1>Pizza Express</h1>
         </div>
         <div class="controls">
@@ -116,15 +116,27 @@
                 </div>
 
                 <div class="menu-items" id="menu-items">
-                    <!-- Los elementos del menú se cargarán dinámicamente -->
+                    <!-- Los elementos del menú se cargarán dinámicamente con imágenes -->
                 </div>
             </div>
 
             <div class="order-summary">
                 <h3>Resumen del Pedido</h3>
-                <ul id="order-items-list">
-                    <!-- Los items seleccionados se mostrarán aquí -->
-                </ul>
+                <div class="order-items-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-items-list">
+                            <!-- Los items seleccionados se mostrarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
                 <div class="order-total">
                     <p>Total: <span id="order-total">$0.00</span></p>
                 </div>
@@ -201,7 +213,7 @@
         "nombre": "Combo Familiar",
         "descripcion": "Pizza grande, 4 bebidas y pan de ajo",
         "precio": 25.99,
-        "imagen": "https://placehold.co/200x100/FF5733/FFFFFF/png?text=Combo+Familiar",
+        "imagen": "imagenes/combofamiliar.png",
         "tiempoPreparacion": 20
       },
       {
@@ -209,7 +221,7 @@
         "nombre": "Combo Pareja",
         "descripcion": "Pizza mediana, 2 bebidas y pan de ajo",
         "precio": 18.99,
-        "imagen": "https://placehold.co/200x100/33A8FF/FFFFFF/png?text=Combo+Pareja",
+        "imagen": "imagenes/combopareja.png",
         "tiempoPreparacion": 15
       },
       {
@@ -217,7 +229,7 @@
         "nombre": "Combo Individual",
         "descripcion": "Pizza personal, bebida y postre",
         "precio": 12.99,
-        "imagen": "https://placehold.co/200x100/33FF57/FFFFFF/png?text=Combo+Individual",
+        "imagen": "imagenes/comboindividual.png",
         "tiempoPreparacion": 10
       }
     ],
@@ -227,7 +239,7 @@
         "nombre": "Pizza Suprema",
         "descripcion": "Jamón, pepperoni, pimientos, cebolla y champiñones",
         "precio": 15.99,
-        "imagen": "https://placehold.co/200x100/FF3366/FFFFFF/png?text=Pizza+Suprema",
+        "imagen": "imagenes/pizzasuprema.png",
         "tiempoPreparacion": 18
       },
       {
@@ -235,7 +247,7 @@
         "nombre": "Pizza Hawaiana",
         "descripcion": "Jamón y piña",
         "precio": 13.99,
-        "imagen": "https://placehold.co/200x100/FFCC33/FFFFFF/png?text=Pizza+Hawaiana",
+        "imagen": "imagenes/pizzahawaiana.png",
         "tiempoPreparacion": 15
       },
       {
@@ -243,7 +255,7 @@
         "nombre": "Pizza Vegetariana",
         "descripcion": "Pimientos, cebolla, champiñones, aceitunas y tomate",
         "precio": 14.99,
-        "imagen": "https://placehold.co/200x100/33FFCC/FFFFFF/png?text=Pizza+Vegetariana",
+        "imagen": "imagenes/pizzavegetariana.png",
         "tiempoPreparacion": 16
       },
       {
@@ -251,7 +263,7 @@
         "nombre": "Pizza Pepperoni",
         "descripcion": "Extra pepperoni y queso",
         "precio": 12.99,
-        "imagen": "https://placehold.co/200x100/CC33FF/FFFFFF/png?text=Pizza+Pepperoni",
+        "imagen": "imagenes/pizzapepperroni.png",
         "tiempoPreparacion": 14
       }
     ],
@@ -261,7 +273,7 @@
         "nombre": "Refresco Cola",
         "descripcion": "Refresco de cola 500ml",
         "precio": 2.50,
-        "imagen": "https://placehold.co/200x100/000000/FFFFFF/png?text=Refresco+Cola",
+        "imagen": "imagenes/refrescocola.png",
         "tiempoPreparacion": 1
       },
       {
@@ -269,7 +281,7 @@
         "nombre": "Refresco Naranja",
         "descripcion": "Refresco de naranja 500ml",
         "precio": 2.50,
-        "imagen": "https://placehold.co/200x100/FF9933/FFFFFF/png?text=Refresco+Naranja",
+        "imagen": "imagenes/refresconaranja.png",
         "tiempoPreparacion": 1
       },
       {
@@ -277,7 +289,7 @@
         "nombre": "Agua Mineral",
         "descripcion": "Agua mineral 500ml",
         "precio": 1.99,
-        "imagen": "https://placehold.co/200x100/33CCFF/FFFFFF/png?text=Agua+Mineral",
+        "imagen": "imagenes/aguamineral.png",
         "tiempoPreparacion": 1
       },
       {
@@ -285,7 +297,7 @@
         "nombre": "Cerveza",
         "descripcion": "Cerveza nacional 355ml",
         "precio": 3.50,
-        "imagen": "https://placehold.co/200x100/FFFF33/000000/png?text=Cerveza",
+        "imagen": "imagenes/cerveza.png",
         "tiempoPreparacion": 2
       }
     ]

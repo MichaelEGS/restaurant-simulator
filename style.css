@@ -1,15 +1,18 @@
 :root {
-  --primary-color: #e31837;
-  --secondary-color: #006491;
-  --accent-color: #00a651;
+  --primary-color: #f0a830; /* Color dorado/naranja para elementos principales */
+  --secondary-color: #e74c3c; /* Color rojo para acentos */
+  --accent-color: #e67e22; /* Color naranja secundario */
   --light-color: #f8f9fa;
-  --dark-color: #212529;
+  --dark-color: #1a1a22; /* Fondo oscuro similar a la captura */
+  --darker-color: #13131a; /* Variante más oscura para contraste */
   --gray-color: #6c757d;
-  --border-color: #dee2e6;
-  --success-color: #28a745;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-color: #2c2c3a; /* Bordes más oscuros */
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --card-bg: #222230; /* Fondo para tarjetas */
+  --hover-color: #f39c12; /* Color para hover */
 }
 
 * {
@@ -21,17 +24,34 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: var(--dark-color);
-  background-color: #f5f5f5;
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  background-image: url("imagenes/fondopagina.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(26, 26, 34, 0.7) 0%, rgba(19, 19, 26, 0.95) 100%);
+  z-index: -1;
 }
 
 header {
-  background-color: white;
+  background-color: rgba(19, 19, 26, 0.8);
   padding: 1rem 2rem;
   box-shadow: var(--shadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .logo-container {
@@ -42,6 +62,13 @@ header {
 
 .logo {
   height: 60px;
+  content: url("imagenes/pizzalogo.png");
+}
+
+h1 {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .controls {
@@ -56,6 +83,7 @@ header {
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn.disabled {
@@ -65,11 +93,12 @@ header {
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--dark-color);
 }
 
 .btn-primary:hover:not(.disabled) {
-  background-color: #c41230;
+  background-color: #e09a20;
+  transform: translateY(-2px);
 }
 
 .btn-success {
@@ -78,7 +107,8 @@ header {
 }
 
 .btn-success:hover:not(.disabled) {
-  background-color: #218838;
+  background-color: #219a52;
+  transform: translateY(-2px);
 }
 
 .btn-warning {
@@ -87,7 +117,8 @@ header {
 }
 
 .btn-warning:hover:not(.disabled) {
-  background-color: #e0a800;
+  background-color: #e5910c;
+  transform: translateY(-2px);
 }
 
 .btn-danger {
@@ -96,7 +127,8 @@ header {
 }
 
 .btn-danger:hover:not(.disabled) {
-  background-color: #c82333;
+  background-color: #d62c1a;
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -106,12 +138,15 @@ header {
 
 .btn-secondary:hover:not(.disabled) {
   background-color: #5a6268;
+  transform: translateY(-2px);
 }
 
 main {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .dashboard {
@@ -125,15 +160,21 @@ main {
 }
 
 .stat-card {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
   text-align: center;
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
 }
 
 .stat-card h3 {
-  color: var(--gray-color);
+  color: var(--light-color);
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -142,6 +183,7 @@ main {
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(240, 168, 48, 0.3);
 }
 
 .simulation-container {
@@ -154,18 +196,33 @@ main {
 .queue-section,
 .restaurant-section,
 .kitchen-section,
+.orders-section,
 .delivery-section {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: var(--shadow);
   margin-bottom: 1.5rem;
+  border-top: 3px solid var(--primary-color);
 }
 
 h2 {
   margin-bottom: 1rem;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: var(--primary-color); /* Línea sólida sin degradado */
 }
 
 .customer-queue {
@@ -176,7 +233,7 @@ h2 {
 }
 
 .customer-card {
-  background-color: #f8f9fa;
+  background-color: rgba(34, 34, 48, 0.8);
   padding: 0.75rem;
   border-radius: 4px;
   border-left: 4px solid var(--primary-color);
@@ -189,8 +246,9 @@ h2 {
 }
 
 .customer-card:hover {
-  background-color: #e9ecef;
+  background-color: rgba(40, 40, 56, 0.9);
   transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes slideIn {
@@ -209,6 +267,7 @@ h2 {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--primary-color);
 }
 
 .customer-info {
@@ -217,11 +276,12 @@ h2 {
 
 .customer-name {
   font-weight: 600;
+  color: var(--light-color);
 }
 
 .customer-type {
   font-size: 0.8rem;
-  color: var(--gray-color);
+  color: var(--primary-color);
 }
 
 .tables-grid {
@@ -231,7 +291,7 @@ h2 {
 }
 
 .table {
-  background-color: #f8f9fa;
+  background-color: rgba(34, 34, 48, 0.8);
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
@@ -242,25 +302,38 @@ h2 {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .table.available {
   border: 2px solid var(--success-color);
 }
 
+.table.available:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
 .table.occupied {
   border: 2px solid var(--primary-color);
-  background-color: #ffeeee;
+  background-color: rgba(240, 168, 48, 0.1);
+}
+
+.table.occupied:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(240, 168, 48, 0.3);
 }
 
 .table-number {
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--light-color);
 }
 
 .table-status {
   font-size: 0.8rem;
   margin-top: 0.5rem;
+  color: var(--primary-color);
 }
 
 .kitchen-orders {
@@ -271,10 +344,16 @@ h2 {
 }
 
 .kitchen-order {
-  background-color: #f8f9fa;
+  background-color: rgba(34, 34, 48, 0.8);
   padding: 1rem;
   border-radius: 8px;
   border-left: 4px solid var(--warning-color);
+  transition: transform 0.3s ease;
+}
+
+.kitchen-order:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .kitchen-order-header {
@@ -285,17 +364,18 @@ h2 {
 
 .kitchen-order-number {
   font-weight: 700;
+  color: var(--light-color);
 }
 
 .kitchen-order-time {
   font-size: 0.8rem;
-  color: var(--gray-color);
+  color: var(--primary-color);
 }
 
 .kitchen-order-progress {
   width: 100%;
   height: 8px;
-  background-color: #e9ecef;
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
   margin-top: 0.5rem;
@@ -303,16 +383,8 @@ h2 {
 
 .progress-bar {
   height: 100%;
-  background-color: var(--warning-color);
+  background: linear-gradient(90deg, var(--warning-color), var(--primary-color));
   transition: width 0.3s ease;
-}
-
-.orders-section {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  margin-bottom: 1.5rem;
 }
 
 .recent-orders,
@@ -324,18 +396,19 @@ h2 {
 
 .order-card,
 .delivery-order {
-  background-color: #f8f9fa;
+  background-color: rgba(34, 34, 48, 0.8);
   padding: 1rem;
   border-radius: 8px;
   border-top: 4px solid var(--accent-color);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .order-card:hover,
 .delivery-order:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(40, 40, 56, 0.9);
 }
 
 .order-card-header,
@@ -348,6 +421,7 @@ h2 {
 .order-card-number,
 .delivery-order-number {
   font-weight: 700;
+  color: var(--light-color);
 }
 
 .order-card-status {
@@ -358,35 +432,40 @@ h2 {
 }
 
 .status-pending {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: rgba(243, 156, 18, 0.2);
+  color: var(--warning-color);
+  border: 1px solid var(--warning-color);
 }
 
 .status-preparing {
-  background-color: #cce5ff;
-  color: #004085;
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+  border: 1px solid #3498db;
 }
 
 .status-ready {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: rgba(39, 174, 96, 0.2);
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
 }
 
 .status-delivered {
-  background-color: #d1e7dd;
-  color: #0f5132;
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
 }
 
 .order-card-customer,
 .delivery-order-customer {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
+  color: var(--light-color);
 }
 
 .delivery-order-address {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  color: var(--gray-color);
+  color: var(--primary-color);
 }
 
 .order-card-items,
@@ -399,6 +478,7 @@ h2 {
   margin-top: 0.5rem;
   font-weight: 600;
   text-align: right;
+  color: var(--primary-color);
 }
 
 .delivery-order-actions {
@@ -423,20 +503,21 @@ h2 {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   overflow: auto;
 }
 
 .modal-content {
-  background-color: white;
+  background-color: var(--darker-color);
   margin: 5% auto;
   padding: 2rem;
   border-radius: 8px;
   width: 80%;
   max-width: 800px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: modalFadeIn 0.3s;
+  border-top: 4px solid var(--primary-color);
 }
 
 @keyframes modalFadeIn {
@@ -457,6 +538,13 @@ h2 {
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: var(--hover-color);
+  transform: scale(1.2);
 }
 
 .form-group {
@@ -467,6 +555,7 @@ h2 {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  color: var(--light-color);
 }
 
 .form-group input,
@@ -476,6 +565,16 @@ h2 {
   border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--light-color);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(240, 168, 48, 0.2);
 }
 
 .menu-categories {
@@ -493,10 +592,15 @@ h2 {
   font-weight: 600;
   color: var(--gray-color);
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .menu-tab.active {
   color: var(--primary-color);
+}
+
+.menu-tab:hover:not(.active) {
+  color: var(--light-color);
 }
 
 .menu-tab.active::after {
@@ -521,53 +625,182 @@ h2 {
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  background-color: rgba(34, 34, 48, 0.8);
+  position: relative;
+  overflow: hidden;
+  height: 220px; /* Altura fija para todos los elementos del menú */
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-item:hover {
   border-color: var(--primary-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
 }
 
 .menu-item.selected {
   border-color: var(--primary-color);
-  background-color: #ffeeee;
+  background-color: rgba(240, 168, 48, 0.1);
 }
 
+/* Estilos para las imágenes de los productos */
 .menu-item-image {
   width: 100%;
-  height: 100px;
+  height: 150px;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Estilos específicos para imágenes de combos y pizzas */
+.menu-item[data-category="combos"] .menu-item-image,
+.menu-item[data-category="pizzas"] .menu-item-image {
+  object-position: left; /* Alinea la imagen desde la izquierda */
+}
+
+/* Estilos específicos para imágenes de bebidas */
+.menu-item[data-category="bebidas"] .menu-item-image {
+  object-position: center; /* Mantiene la alineación centrada para bebidas */
+}
+
+.menu-item:hover .menu-item-image {
+  transform: scale(1.05);
 }
 
 .menu-item-name {
   font-weight: 600;
   margin-bottom: 0.25rem;
+  color: var(--light-color);
+  position: relative;
+  z-index: 2;
 }
 
 .menu-item-price {
   color: var(--primary-color);
   font-weight: 700;
+  position: relative;
+  z-index: 2;
+  margin-top: auto; /* Empuja el precio hacia abajo */
+}
+
+/* Overlay para mejorar la legibilidad del texto */
+.menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(19, 19, 26, 0.9), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Modificar los estilos de la tabla de resumen de pedido para asegurar alineación correcta */
+
+/* Estilos para la tabla de resumen de pedido */
+.order-items-table {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+/* Estilos comunes para las tablas de resumen y factura */
+.order-summary table,
+.invoice-items table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--light-color);
+  background-color: rgba(19, 19, 26, 0.3);
+  table-layout: fixed; /* Asegura que las columnas mantengan su ancho */
+}
+
+.order-summary table th,
+.order-summary table td,
+.invoice-items th,
+.invoice-items td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left; /* Por defecto alineamos a la izquierda */
+  vertical-align: middle; /* Alineación vertical centrada */
+}
+
+.order-summary table th,
+.invoice-items th {
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: rgba(19, 19, 26, 0.5);
+  text-align: left;
+}
+
+/* Definir anchos específicos para cada columna */
+.order-summary table th:nth-child(1),
+.order-summary table td:nth-child(1),
+.invoice-items th:nth-child(1),
+.invoice-items td:nth-child(1) {
+  width: 40%; /* Producto */
+  text-align: left;
+}
+
+.order-summary table th:nth-child(2),
+.order-summary table td:nth-child(2),
+.invoice-items th:nth-child(2),
+.invoice-items td:nth-child(2) {
+  width: 20%; /* Cantidad */
+  text-align: center;
+}
+
+.order-summary table th:nth-child(3),
+.order-summary table td:nth-child(3),
+.invoice-items th:nth-child(3),
+.invoice-items td:nth-child(3) {
+  width: 20%; /* Precio */
+  text-align: right;
+}
+
+.order-summary table th:nth-child(4),
+.order-summary table td:nth-child(4),
+.invoice-items th:nth-child(4),
+.invoice-items td:nth-child(4) {
+  width: 20%; /* Subtotal */
+  text-align: right;
+}
+
+/* Asegurar que las filas tengan un estilo consistente */
+.order-summary table tr,
+.invoice-items tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Estilo para filas alternas para mejor legibilidad */
+.order-summary table tbody tr:nth-child(even),
+.invoice-items tbody tr:nth-child(even) {
+  background-color: rgba(34, 34, 48, 0.4);
+}
+
+/* Hover para las filas */
+.order-summary table tbody tr:hover,
+.invoice-items tbody tr:hover {
+  background-color: rgba(240, 168, 48, 0.1);
 }
 
 .order-summary {
   margin-top: 1.5rem;
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: rgba(34, 34, 48, 0.8);
   border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
 }
 
-#order-items-list {
-  list-style: none;
+.order-summary h3 {
   margin-bottom: 1rem;
-}
-
-#order-items-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -575,6 +808,9 @@ h2 {
   text-align: right;
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-top: 1rem;
+  padding-right: 0.75rem;
 }
 
 .modal-actions {
@@ -589,7 +825,7 @@ h2 {
   padding: 1.5rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: rgba(34, 34, 48, 0.8);
   margin-bottom: 1.5rem;
 }
 
@@ -599,26 +835,19 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.invoice-header h2 {
+  color: var(--primary-color);
+}
+
 .invoice-customer {
   margin-bottom: 1.5rem;
+  color: var(--light-color);
 }
 
-.invoice-items table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
-}
-
-.invoice-items th,
-.invoice-items td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.invoice-items th {
-  background-color: #f8f9fa;
-  font-weight: 600;
+.invoice-items h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
 }
 
 .invoice-total {
@@ -626,11 +855,12 @@ h2 {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .invoice-footer {
   text-align: center;
-  color: var(--gray-color);
+  color: var(--primary-color);
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
 }
@@ -672,5 +902,49 @@ h2 {
   .delivery-orders {
     grid-template-columns: 1fr;
   }
+
+  .order-summary table,
+  .invoice-items table {
+    font-size: 0.9rem;
+  }
+
+  .order-summary table th,
+  .order-summary table td,
+  .invoice-items th,
+  .invoice-items td {
+    padding: 0.5rem;
+  }
+}
+
+/* Efectos decorativos */
+.restaurant-section::before,
+.queue-section::before,
+.kitchen-section::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(240, 168, 48, 0.1);
+  z-index: -1;
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(240, 168, 48, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(240, 168, 48, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(240, 168, 48, 0);
+  }
+}
+
+.btn-primary {
+  animation: pulse 2s infinite;
 }
 
