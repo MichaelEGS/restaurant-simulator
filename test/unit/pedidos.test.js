@@ -1,4 +1,4 @@
-import Pedidos from '../modulos/pedidos.js';
+import * as Pedidos from '../../modulos/pedidos.js';
 
 describe('Flujo de Pedidos', () => {
   const clienteMock = {

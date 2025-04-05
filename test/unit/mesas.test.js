@@ -1,5 +1,5 @@
-import Mesas from '../modulos/mesas.js';
-import API from '../modulos/api.js';
+import * as Mesas from '../../modulos/mesas.js';
+import * as API from '../../modulos/api.js';
 
 describe('Gestión de Mesas', () => {
   beforeEach(async () => {

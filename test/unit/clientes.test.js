@@ -1,4 +1,4 @@
-import Clientes from '../modulos/clientes.js';
+import * as Clientes from '../../modulos/clientes.js';
 
 describe('Gestión de Clientes', () => {
   test('Crea cliente con avatar único', async () => {

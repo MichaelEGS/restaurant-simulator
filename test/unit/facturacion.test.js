@@ -1,5 +1,5 @@
-import Facturacion from '../modulos/facturacion.js';
-import API from '../modulos/api.js';
+import * as Facturacion from '../../modulos/facturacion.js';
+import * as API from '../../modulos/api.js';
 
 describe('Módulo Facturación', () => {
   let pedidoEjemplo;

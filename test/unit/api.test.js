@@ -1,4 +1,4 @@
-import API from '../modulos/api.js';
+import * as API from '../../modulos/api.js';
 
 describe('Módulo API', () => {
   beforeEach(async () => {
@@ -15,10 +15,10 @@ describe('Módulo API', () => {
     const nuevoPedido = { id: 'test1', items: [] };
     const pedidos = await API.obtenerPedidos();
     pedidos.push(nuevoPedido);
-    
+
     await API.actualizarPedidos(pedidos);
     const pedidosActualizados = await API.obtenerPedidos();
-    
+
     expect(pedidosActualizados).toContainEqual(nuevoPedido);
   });
 });
