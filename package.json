@@ -4,10 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "jest --coverage",
-    "test:unit": "jest tests/unit",
-    "test:integration": "jest tests/integration",
-    "test:watch": "jest --watchAll",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js test/unit",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js test/integration",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
     "build": "mkdir -p dist && cp -r *.html *.css modulos data.json dist/",
     "dev": "live-server --port=3000",
     "lint": "eslint .",
@@ -28,10 +28,14 @@
     "reporters": [
       "default",
       "jest-junit"
-    ]
+    ],
+    "transform": {}
   },
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
     "@eslint/js": "^8.56.0",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.56.0",
     "eslint-plugin-jest": "^28.11.0",
     "globals": "^16.0.0",
