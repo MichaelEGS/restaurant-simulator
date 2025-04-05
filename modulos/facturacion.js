@@ -105,7 +105,7 @@ function generarFacturaId() {
     obtenerFacturasPorCliente,
     marcarFacturaPagada,
     obtenerFacturasPorEstado,
-    formatearTotal,a
+    formatearTotal,
   }
   //pepegit 
   
