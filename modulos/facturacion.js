@@ -107,5 +107,5 @@ function generarFacturaId() {
     obtenerFacturasPorEstado,
     formatearTotal,
   }
-  
+  //pepegit 
   
