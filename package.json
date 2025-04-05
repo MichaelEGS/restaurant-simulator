@@ -10,8 +10,8 @@
     "test:watch": "jest --watchAll",
     "build": "mkdir -p dist && cp -r *.html *.css modulos data.json dist/",
     "dev": "live-server --port=3000",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "jest": {
     "collectCoverageFrom": [

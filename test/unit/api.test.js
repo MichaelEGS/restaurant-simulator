@@ -1,4 +1,4 @@
-const API = require('../modulos/api');
+import API from '../modulos/api.js';
 
 describe('Módulo API', () => {
   beforeEach(async () => {

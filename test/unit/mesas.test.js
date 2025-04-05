@@ -1,5 +1,5 @@
-const Mesas = require('../modulos/mesas');
-const API = require('../modulos/api');
+import Mesas from '../modulos/mesas.js';
+import API from '../modulos/api.js';
 
 describe('Gestión de Mesas', () => {
   beforeEach(async () => {

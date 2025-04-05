@@ -1,4 +1,4 @@
-const Clientes = require('../modulos/clientes');
+import Clientes from '../modulos/clientes.js';
 
 describe('Gestión de Clientes', () => {
   test('Crea cliente con avatar único', async () => {
