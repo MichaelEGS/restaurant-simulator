@@ -1,4 +1,4 @@
-const { calcularTiempoPreparacion } = require('../modulos/tiempo');
+import { calcularTiempoPreparacion } from '../modulos/tiempo.js';
 
 describe('Módulo Tiempo', () => {
   const itemsValidos = [

@@ -1,5 +1,4 @@
-const Pedidos = require('../modulos/pedidos');
-const Mesas = require('../modulos/mesas');
+import Pedidos from '../modulos/pedidos.js';
 
 describe('Flujo de Pedidos', () => {
   const clienteMock = {
