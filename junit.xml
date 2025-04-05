@@ -1,110 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="4" errors="0" time="6.051">
-  <testsuite name="Módulo Tiempo" errors="0" failures="2" skipped="0" timestamp="2025-04-05T16:09:23" time="1.847" tests="2">
-    <testcase classname="Módulo Tiempo Calcula tiempo de preparación no lineal" name="Módulo Tiempo Calcula tiempo de preparación no lineal" time="0.029">
-      <failure>TypeError: Cannot read properties of undefined (reading &apos;obtenerMenu&apos;)
-    at obtenerMenu (C:\Users\wilbe\Downloads\restaurant-simulator-1\modulos\tiempo.js:10:35)
-    at Object.&lt;anonymous&gt; (C:\Users\wilbe\Downloads\restaurant-simulator-1\test\unit\tiempo.test.js:10:26)
-    at Promise.then.completed (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:316:40)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at _runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:444:34)
-    at Object.worker (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\testWorker.js:106:12)</failure>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="4.057">
+  <testsuite name="Módulo API" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:44:35" time="1.095" tests="2">
+    <testcase classname="Módulo API Carga datos iniciales correctamente" name="Módulo API Carga datos iniciales correctamente" time="0.013">
     </testcase>
-    <testcase classname="Módulo Tiempo Maneja items no encontrados" name="Módulo Tiempo Maneja items no encontrados" time="0.039">
-      <failure>Error: expect(received).rejects.toThrow(expected)
-
-Expected substring: &quot;Item no encontrado en el menú&quot;
-Received message:   &quot;Cannot read properties of undefined (reading &apos;obtenerMenu&apos;)&quot;
-
-       8 | async function calcularTiempoPreparacion(items) {
-       9 |     // Obtener el menú completo
-    &gt; 10 |     const menu = await window.API.obtenerMenu();
-         |                                   ^
-      11 |     
-      12 |     // Aplanar todas las categorías del menú en un solo array
-      13 |     const todosLosItems = [...menu.combos, ...menu.pizzas, ...menu.bebidas];
-
-      at obtenerMenu (modulos/tiempo.js:10:35)
-      at Object.&lt;anonymous&gt; (test/unit/tiempo.test.js:17:18)
-    at Object.toThrow (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\expect\build\index.js:218:22)
-    at Object.&lt;anonymous&gt; (C:\Users\wilbe\Downloads\restaurant-simulator-1\test\unit\tiempo.test.js:18:16)
-    at Promise.then.completed (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:316:40)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at _runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:444:34)
-    at Object.worker (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\testWorker.js:106:12)</failure>
+    <testcase classname="Módulo API Guarda y recupera pedidos" name="Módulo API Guarda y recupera pedidos" time="0.114">
     </testcase>
   </testsuite>
-  <testsuite name="Gestión de Clientes" errors="0" failures="1" skipped="0" timestamp="2025-04-05T16:09:23" time="1.876" tests="2">
-    <testcase classname="Gestión de Clientes Crea cliente con avatar único" name="Gestión de Clientes Crea cliente con avatar único" time="0.023">
-      <failure>TypeError: Cannot read properties of undefined (reading &apos;obtenerClientes&apos;)
-    at Module.obtenerClientes (C:\Users\wilbe\Downloads\restaurant-simulator-1\modulos\clientes.js:33:39)
-    at Object.&lt;anonymous&gt; (C:\Users\wilbe\Downloads\restaurant-simulator-1\test\unit\clientes.test.js:5:36)
-    at Promise.then.completed (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:316:40)
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at _runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:444:34)
-    at Object.worker (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\testWorker.js:106:12)</failure>
-    </testcase>
-    <testcase classname="Gestión de Clientes Valida dirección para domicilio" name="Gestión de Clientes Valida dirección para domicilio" time="0.006">
-    </testcase>
-  </testsuite>
-  <testsuite name="Módulo API" errors="0" failures="0" skipped="0" timestamp="2025-04-05T16:09:23" time="1.856" tests="2">
-    <testcase classname="Módulo API Carga datos iniciales correctamente" name="Módulo API Carga datos iniciales correctamente" time="0.024">
-    </testcase>
-    <testcase classname="Módulo API Guarda y recupera pedidos" name="Módulo API Guarda y recupera pedidos" time="0.119">
-    </testcase>
-  </testsuite>
-  <testsuite name="Módulo Facturación" errors="0" failures="1" skipped="0" timestamp="2025-04-05T16:09:23" time="2.016" tests="1">
-    <testcase classname="Módulo Facturación Genera factura con ID único" name="Módulo Facturación Genera factura con ID único" time="0.123">
-      <failure>TypeError: Cannot read properties of undefined (reading &apos;obtenerClientePorId&apos;)
-    at Module.obtenerClientePorId (C:\Users\wilbe\Downloads\restaurant-simulator-1\modulos\facturacion.js:19:43)
-    at Object.&lt;anonymous&gt; (C:\Users\wilbe\Downloads\restaurant-simulator-1\test\unit\facturacion.test.js:17:39)
-    at Promise.then.completed (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:298:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:316:40)
-    at _runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\runTest.js:444:34)
-    at Object.worker (C:\Users\wilbe\Downloads\restaurant-simulator-1\node_modules\jest-runner\build\testWorker.js:106:12)</failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="Gestión de Mesas" errors="0" failures="0" skipped="0" timestamp="2025-04-05T16:09:23" time="2.05" tests="1">
-    <testcase classname="Gestión de Mesas Asigna y libera mesa correctamente" name="Gestión de Mesas Asigna y libera mesa correctamente" time="0.242">
+  <testsuite name="Gestión de Mesas" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:44:35" time="1.211" tests="1">
+    <testcase classname="Gestión de Mesas Asigna y libera mesa correctamente" name="Gestión de Mesas Asigna y libera mesa correctamente" time="0.233">
     </testcase>
   </testsuite>
 </testsuites>
