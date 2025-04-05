@@ -9,6 +9,8 @@ export default [
       globals: {
         // Variables globales del navegador
         ...globals.browser,
+        ...globals.jest, // 👈 Agrega las globals de Jest
+
         // Agregar CustomEvent si es necesario
         CustomEvent: "readonly",
       },
