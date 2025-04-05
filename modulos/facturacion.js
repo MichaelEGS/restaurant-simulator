@@ -108,4 +108,5 @@ function generarFacturaId() {
     formatearTotal,
   }
   //pepegit 
+  //prueba final
   
