@@ -33,7 +33,7 @@ jobs:
 
       # PASO 5: Verificar calidad de código
       - name: Run ESLint
-        run: npx eslint . --ext .js
+        run: npx eslint . 
 
       # PASO 6: Ejecutar pruebas unitarias
       - name: Run Unit Tests

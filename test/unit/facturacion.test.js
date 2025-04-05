@@ -1,5 +1,5 @@
-const Facturacion = require('../modulos/facturacion');
-const API = require('../modulos/api');
+import * as Facturacion from '../../modulos/facturacion.js';
+import * as API from '../../modulos/api.js';
 
 describe('Módulo Facturación', () => {
   let pedidoEjemplo;

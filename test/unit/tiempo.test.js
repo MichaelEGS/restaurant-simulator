@@ -1,4 +1,4 @@
-const { calcularTiempoPreparacion } = require('../modulos/tiempo');
+import { calcularTiempoPreparacion } from '../../modulos/tiempo.js';
 
 describe('Módulo Tiempo', () => {
   const itemsValidos = [
@@ -8,9 +8,7 @@ describe('Módulo Tiempo', () => {
 
   test('Calcula tiempo de preparación no lineal', async () => {
     const tiempo = await calcularTiempoPreparacion(itemsValidos);
-    // combo1: 20min * sqrt(2) ≈ 28.28
-    // pizza1: 18min * sqrt(1) = 18
-    // Total ≈ 46.28 ≈ 46
+    // Ejemplo: combo1: 20min * sqrt(2) ≈ 28.28, pizza1: 18min * sqrt(1)=18; total ≈ 46
     expect(tiempo).toBe(46);
   });
 
