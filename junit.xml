@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="0" errors="0" time="4.057">
-  <testsuite name="Módulo API" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:44:35" time="1.095" tests="2">
-    <testcase classname="Módulo API Carga datos iniciales correctamente" name="Módulo API Carga datos iniciales correctamente" time="0.013">
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="5.061">
+  <testsuite name="Módulo API" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:55:40" time="1.249" tests="2">
+    <testcase classname="Módulo API Carga datos iniciales correctamente" name="Módulo API Carga datos iniciales correctamente" time="0.015">
     </testcase>
-    <testcase classname="Módulo API Guarda y recupera pedidos" name="Módulo API Guarda y recupera pedidos" time="0.114">
+    <testcase classname="Módulo API Guarda y recupera pedidos" name="Módulo API Guarda y recupera pedidos" time="0.118">
     </testcase>
   </testsuite>
-  <testsuite name="Gestión de Mesas" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:44:35" time="1.211" tests="1">
-    <testcase classname="Gestión de Mesas Asigna y libera mesa correctamente" name="Gestión de Mesas Asigna y libera mesa correctamente" time="0.233">
+  <testsuite name="Gestión de Mesas" errors="0" failures="0" skipped="0" timestamp="2025-04-05T20:55:40" time="1.342" tests="1">
+    <testcase classname="Gestión de Mesas Asigna y libera mesa correctamente" name="Gestión de Mesas Asigna y libera mesa correctamente" time="0.237">
     </testcase>
   </testsuite>
 </testsuites>

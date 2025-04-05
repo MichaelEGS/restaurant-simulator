@@ -10,7 +10,7 @@ async function obtenerMesas() {
   return await API.obtenerMesas()
 }
 
-// Función para obtener mesas disponibles
+// Función para obtener mesas disponibles pruebaaaa
 async function obtenerMesasDisponibles() {
   const mesas = await obtenerMesas()
   return mesas.filter((mesa) => mesa.disponible)
