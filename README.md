@@ -67,7 +67,7 @@ Abre un Pull Request en GitHub
 Distribuido bajo licencia MIT. Ver LICENSE para más detalles.
 
 👨💻 Equipo de Desarrollo:
-Michael (Infraestructura) | Jesús & Steven (Lógica) | Jhon Daniel (Diseño)
+Michael & Wilbert (Infraestructura) | Jesús, Steven % Wilbert (Lógica) | Jhon Daniel (Diseño)
 
 
 ### Características clave de esta actualización:
